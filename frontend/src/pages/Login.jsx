@@ -17,20 +17,20 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-pink-100">
-      <div className="bg-white shadow-xl rounded-2xl p-10 w-full max-w-md">
-        <h2 className="text-3xl font-bold text-center text-indigo-700 mb-6">
+    <div className="flex justify-center items-center min-h-screen bg-[#F8FAFC] font-sans">
+      <div className="bg-white shadow-2xl rounded-2xl p-10 w-full max-w-md border border-gray-100 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+        <h2 className="text-3xl font-semibold text-center text-[#0D1B2A] mb-8">
           Welcome Back 👋
         </h2>
 
         {/* Role Selector */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-8">
           <button
             type="button"
-            className={`px-4 py-2 rounded-l-lg font-semibold border transition-all ${
+            className={`px-5 py-2.5 rounded-l-lg font-medium border transition-all duration-200 ${
               role === "jobseeker"
-                ? "bg-indigo-600 text-white border-indigo-600"
-                : "bg-gray-100 text-gray-700 border-gray-300"
+                ? "bg-[#1E6091] text-white border-[#1E6091]"
+                : "bg-gray-100 text-[#2E2E2E] border-gray-300"
             }`}
             onClick={() => setRole("jobseeker")}
           >
@@ -38,10 +38,10 @@ const Login = () => {
           </button>
           <button
             type="button"
-            className={`px-4 py-2 rounded-r-lg font-semibold border transition-all ${
+            className={`px-5 py-2.5 rounded-r-lg font-medium border transition-all duration-200 ${
               role === "employer"
-                ? "bg-indigo-600 text-white border-indigo-600"
-                : "bg-gray-100 text-gray-700 border-gray-300"
+                ? "bg-[#1E6091] text-white border-[#1E6091]"
+                : "bg-gray-100 text-[#2E2E2E] border-gray-300"
             }`}
             onClick={() => setRole("employer")}
           >
@@ -49,15 +49,17 @@ const Login = () => {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}
-          <div className="mb-4">
-            <label className="block text-gray-600 mb-1">Email</label>
+          <div>
+            <label className="block text-[#2E2E2E] mb-1 text-sm font-medium">
+              Email
+            </label>
             <input
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E6091] transition"
               value={formData.email}
               onChange={handleChange}
               required
@@ -65,13 +67,15 @@ const Login = () => {
           </div>
 
           {/* Password */}
-          <div className="mb-6">
-            <label className="block text-gray-600 mb-1">Password</label>
+          <div>
+            <label className="block text-[#2E2E2E] mb-1 text-sm font-medium">
+              Password
+            </label>
             <input
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
+              className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1E6091] transition"
               value={formData.password}
               onChange={handleChange}
               required
@@ -81,17 +85,17 @@ const Login = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200"
+            className="w-full bg-[#184E77] text-white py-2.5 rounded-lg font-semibold hover:bg-[#1E6091] transition duration-200 shadow-md hover:shadow-lg"
           >
             Login as {role === "jobseeker" ? "Job Seeker" : "Employer"}
           </button>
         </form>
 
-        <p className="text-center text-gray-500 text-sm mt-6">
+        <p className="text-center text-[#6B7280] text-sm mt-6">
           Don’t have an account?{" "}
           <a
             href="/register"
-            className="text-indigo-600 font-medium hover:underline"
+            className="text-[#1E6091] font-medium hover:underline"
           >
             Register here
           </a>
