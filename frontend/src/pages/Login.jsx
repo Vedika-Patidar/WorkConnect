@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // <-- add this
 
 const Login = () => {
+  const navigate = useNavigate(); // <-- initialize navigation
+
   const [role, setRole] = useState("jobseeker");
   const [formData, setFormData] = useState({
     email: "",
@@ -12,8 +15,14 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     console.log("Login Data:", { ...formData, role });
-    alert(`Logged in as ${role}! Check console for form data.`);
+
+    // Redirect to dashboard
+    // If you want different dashboards:
+    // navigate(role === "jobseeker" ? "/jobseeker-dashboard" : "/employer-dashboard");
+
+    navigate("/dashboard"); // <-- redirect here
   };
 
   return (
@@ -36,6 +45,7 @@ const Login = () => {
           >
             Job Seeker
           </button>
+
           <button
             type="button"
             className={`px-5 py-2.5 rounded-r-lg font-medium border transition-all duration-200 ${
